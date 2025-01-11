@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting() {
     Box(Modifier.fillMaxSize(), Alignment.Center) {
         if (false) GreenButton({}, "Старт")
-        else if (true) BlueButton({}, "Cancel")
+        else BlueButton({}, "Cancel")
     }
 }
 

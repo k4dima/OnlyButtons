@@ -1,4 +1,4 @@
-package com.example.onlybuttons
+package com.example.onlybuttons.utils
 
 import android.graphics.BlurMaskFilter
 import android.graphics.ColorMatrix
