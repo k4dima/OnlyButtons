@@ -1,4 +1,4 @@
-package com.example.onlybuttons.ui.theme
+package core.ui.theme
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily

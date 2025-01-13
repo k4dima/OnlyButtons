@@ -1,4 +1,4 @@
-package com.example.onlybuttons
+package blue.ui.elements
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -29,9 +29,10 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.onlybuttons.ui.theme.Inter
-import com.example.onlybuttons.utils.boxShadow
-import com.example.onlybuttons.utils.innerShadow
+import com.example.onlybuttons.R
+import core.ui.theme.Inter
+import core.ui.elements.boxShadow
+import core.ui.elements.innerShadow
 
 @Composable
 fun BlueButton(onClick: () -> Unit, text: String) {

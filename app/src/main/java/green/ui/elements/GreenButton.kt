@@ -1,4 +1,4 @@
-package com.example.onlybuttons
+package green.ui.elements
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -27,7 +27,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.onlybuttons.ui.theme.PTSans
+import core.ui.theme.PTSans
 
 @Composable
 fun GreenButton(onClick: () -> Unit, text: String) {
