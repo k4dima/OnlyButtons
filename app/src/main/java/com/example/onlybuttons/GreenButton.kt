@@ -24,9 +24,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.onlybuttons.ui.theme.PTSans
 
 @Composable
 fun GreenButton(onClick: () -> Unit, text: String) {
@@ -73,7 +73,7 @@ fun GreenButton(onClick: () -> Unit, text: String) {
             ) {
                 Text(
                     text,
-                    fontFamily = FontFamily.Monospace,
+                    fontFamily = PTSans,
                     style = TextStyle(
                         Color.White,
                         38.sp,

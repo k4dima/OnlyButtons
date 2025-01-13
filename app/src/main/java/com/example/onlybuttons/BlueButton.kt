@@ -1,6 +1,7 @@
 package com.example.onlybuttons
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -9,6 +10,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -22,9 +24,11 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.onlybuttons.ui.theme.Inter
 import com.example.onlybuttons.utils.boxShadow
 import com.example.onlybuttons.utils.innerShadow
 
@@ -33,7 +37,7 @@ fun BlueButton(onClick: () -> Unit, text: String) {
     val interactionSource = remember { MutableInteractionSource() }
     val pressed by interactionSource.collectIsPressedAsState()
     val backgroundColor
-            by animateColorAsState(if (pressed) Color(0xDD_4A5B7C) else Color(0xFF_4A5B7C))
+            by animateColorAsState(if (pressed) Color(0xD1_0D1A35) else Color(0xFF_4A5B7C))
     val borderColor by animateColorAsState(if (pressed) Color(24, 26, 39) else Color(90, 110, 143))
     val roundedCornerShape = RoundedCornerShape(16.dp)
     val topColor by animateColorAsState(if (pressed) Color(63, 70, 101) else Color(95, 121, 162))
@@ -41,14 +45,15 @@ fun BlueButton(onClick: () -> Unit, text: String) {
     val topBorderColor by animateColorAsState(if (pressed) borderColor else Color(112, 134, 172))
     val bottomBorderColor by animateColorAsState(if (pressed) borderColor else Color(90, 109, 144))
     val outerShadowAlpha by animateFloatAsState(if (pressed) 0f else 0.5f)
-    val innerShadowAlpha by animateFloatAsState(if (pressed) 0.75f else 0f)
+    val innerShadowAlpha by animateFloatAsState(if (pressed) 0.6f else 0f)
+    val offset by animateDpAsState(if (pressed) (-2).dp else 0.dp)
     Box {
         Image(
             painterResource(R.drawable.girl),
             null,
             Modifier
                 .fillMaxSize()
-                .blur(24.dp),
+                .blur(48.dp),
             contentScale = ContentScale.Crop
         )
         Box(
@@ -59,6 +64,7 @@ fun BlueButton(onClick: () -> Unit, text: String) {
         ) {
             Box(
                 Modifier
+                    .offset(y = -offset)
                     .clickable(interactionSource, null, onClick = onClick)
                     .size(150.dp, 52.dp)
                     .boxShadow(
@@ -83,14 +89,20 @@ fun BlueButton(onClick: () -> Unit, text: String) {
             ) {
                 Box(
                     Modifier
-                        .size(147.dp, 49.dp)
+                        .size(148.dp, 50.dp)
                         .background(
                             Brush.verticalGradient(listOf(topColor, bottomColor)),
                             RoundedCornerShape(15.dp)
                         ),
                     Alignment.Center
                 ) {
-                    Text(text, color = Color.White, fontSize = 18.sp)
+                    Text(
+                        text,
+                        color = Color.White,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.W600,
+                        fontFamily = Inter
+                    )
                 }
             }
         }
