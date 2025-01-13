@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.onlybuttons.ui.theme.PTSans
@@ -32,7 +33,7 @@ import com.example.onlybuttons.ui.theme.PTSans
 fun GreenButton(onClick: () -> Unit, text: String) {
     val interactionSource = remember { MutableInteractionSource() }
     val pressed by interactionSource.collectIsPressedAsState()
-    val shadowOffset by animateDpAsState(if (pressed) 0.dp else 20.dp)
+    val offset by animateDpAsState(if (pressed) 0.dp else (-20).dp)
     val sideShadowElevation by animateDpAsState(if (pressed) 0.dp else 4.dp)
     val roundedCornerShape = RoundedCornerShape(16.dp)
     val topColor by animateColorAsState(if (pressed) Color(0xEE_50B58D) else Color(0xDE_50B58D))
@@ -53,7 +54,7 @@ fun GreenButton(onClick: () -> Unit, text: String) {
         Box(
             Modifier
                 .fillMaxSize()
-                .offset(y = -shadowOffset)
+                .offset { IntOffset(0, offset.roundToPx()) }
                 .background(
                     Brush.verticalGradient(
                         listOf(Color(122, 199, 168), Color(181, 224, 207)),

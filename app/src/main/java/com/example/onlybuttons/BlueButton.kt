@@ -26,6 +26,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.onlybuttons.ui.theme.Inter
@@ -64,7 +65,7 @@ fun BlueButton(onClick: () -> Unit, text: String) {
         ) {
             Box(
                 Modifier
-                    .offset(y = -offset)
+                    .offset { IntOffset(0, offset.roundToPx()) }
                     .clickable(interactionSource, null, onClick = onClick)
                     .size(150.dp, 52.dp)
                     .boxShadow(
